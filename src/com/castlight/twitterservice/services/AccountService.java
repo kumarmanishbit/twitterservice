@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 
 import com.castlight.twitterservice.beans.Users;
 import com.castlight.twitterservice.dbservice.AccountDao;
-@Path("/test")
+@Path("/user")
 
 public class AccountService {
 

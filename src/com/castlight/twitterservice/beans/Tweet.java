@@ -4,14 +4,27 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table
 @NamedQuery(name="Tweet.findAll", query="SELECT t FROM Tweet t WHERE t.user_id = :user_id")
 public class Tweet { 
 
+	public String getLocation() {
+		return "https://www.google.co.in/maps/place/"+getGeo_lat()+","+getGeo_long();
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
 	@Id
 	private long tweet_id;
+	
+	@Transient
+	private String location;
 	
 	private String tweet_text;
 	

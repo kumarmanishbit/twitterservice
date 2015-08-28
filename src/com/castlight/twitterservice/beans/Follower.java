@@ -2,10 +2,16 @@ package com.castlight.twitterservice.beans;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name ="followers")
+@NamedQueries({
+@NamedQuery(name="Follower.findFollowers", query="SELECT f.follower_id FROM Follower f WHERE f.user_id = :user_id"),
+@NamedQuery(name="Follower.findFollowing", query="SELECT f.user_id FROM Follower f WHERE f.follower_id = :user_id")
+})
 public class Follower {
 
 	@Id

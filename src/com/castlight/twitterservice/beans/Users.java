@@ -31,6 +31,14 @@ public class Users {
 
 	private String Name;
 	
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+	
 	public String getUtc_offset() {
 		return utc_offset;
 	}
@@ -64,18 +72,25 @@ public class Users {
 	@Transient
 	private List<Integer> followers = new ArrayList<Integer>( );
 	
-	public String getName() {
-		return Name;
-	}
 
-	public void setName(String name) {
-		Name = name;
-	}
 
 	public int getUser_id() {
 		return user_id;
 	}
 
+	
+	public List<Tweet> getTweet() {
+		return tweet;
+	}
+
+	public void setTweet(List<Tweet> tweet) {
+		this.tweet = tweet;
+	}
+
+
+	private List<Tweet> tweet;
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
