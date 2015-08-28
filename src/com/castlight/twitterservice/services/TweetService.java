@@ -20,19 +20,18 @@ public class TweetService {
 	@GET
 	@Path("/{user_id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Tweet> getTweet(@PathParam("user_id") int user_id){
-		
-		
+	public List<Tweet> getTweet(@PathParam("user_id") int user_id) {
+
 		return (List<Tweet>) new TweetDao().getTweet(user_id);
 	}
 
 	@POST
 	@Path("/createtweet")
-	public Response createTweet(Tweet tweet){
-		
+	public Response createTweet(Tweet tweet) {
+
 		TweetDao tweetDao = new TweetDao();
-		tweetDao.createTweet(tweet.getUser_id(), tweet.getTweet_text(),tweet.getGeo_lat(),tweet.getGeo_long());
-		
+		tweetDao.createTweet(tweet.getUser_id(), tweet.getTweet_text(), tweet.getGeo_lat(), tweet.getGeo_long());
+
 		return Response.status(200).entity("Tweet Has been created Successfully!!!").build();
 	}
 }

@@ -10,14 +10,12 @@ import com.castlight.twitterservice.dbservice.FollowDao;
 @Path("/follow")
 public class FollowService {
 
-
 	@POST
 	@Path("/{follower_id}/{following_to}")
-	public Response follow(@PathParam("follower_id") int follower_id , @PathParam("following_to") int following_to){
-		
+	public Response follow(@PathParam("follower_id") int follower_id, @PathParam("following_to") int following_to) {
+
 		new FollowDao().follow(follower_id, following_to);
-		return Response.status(200).entity(follower_id+" is now following to "+following_to).build();
+		return Response.status(200).entity(follower_id + " is now following to " + following_to).build();
 	}
-	
-	
+
 }

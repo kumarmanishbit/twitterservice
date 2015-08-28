@@ -8,26 +8,25 @@ import javax.persistence.Transient;
 
 @Entity
 @Table
-@NamedQuery(name="Tweet.findAll", query="SELECT t FROM Tweet t WHERE t.user_id = :user_id")
-public class Tweet { 
+@NamedQuery(name = "Tweet.findAll", query = "SELECT t FROM Tweet t WHERE t.user_id = :user_id")
+public class Tweet {
 
 	public String getLocation() {
-		return "https://www.google.co.in/maps/place/"+getGeo_lat()+","+getGeo_long();
+		return "https://www.google.co.in/maps/place/" + getGeo_lat() + "," + getGeo_long();
 	}
 
 	public void setLocation(String location) {
 		this.location = location;
 	}
 
-
 	@Id
 	private long tweet_id;
-	
+
 	@Transient
 	private String location;
-	
+
 	private String tweet_text;
-	
+
 	public long getTweet_id() {
 		return tweet_id;
 	}
@@ -68,11 +67,10 @@ public class Tweet {
 		this.geo_long = geo_long;
 	}
 
-
 	private int user_id;
-	
+
 	private double geo_lat;
-	
+
 	private double geo_long;
 
 	@Override
@@ -80,6 +78,5 @@ public class Tweet {
 		return "Tweet [tweet_id=" + tweet_id + ", tweet_text=" + tweet_text + ", user_id=" + user_id + ", geo_lat="
 				+ geo_lat + ", geo_long=" + geo_long + "]";
 	}
-
 
 }

@@ -28,9 +28,8 @@ public class Users {
 		this.followers = followers;
 	}
 
-
 	private String Name;
-	
+
 	public String getName() {
 		return Name;
 	}
@@ -38,7 +37,7 @@ public class Users {
 	public void setName(String name) {
 		Name = name;
 	}
-	
+
 	public String getUtc_offset() {
 		return utc_offset;
 	}
@@ -55,30 +54,25 @@ public class Users {
 		this.time_zone = time_zone;
 	}
 
-
 	@Id
 	private int user_id;
-	
-	
+
 	private String utc_offset;
-	
+
 	private String time_zone;
-	
+
 	private int follower_counts;
-	
-	@Transient
-	private List<Integer> following  = new ArrayList<Integer>( );
 
 	@Transient
-	private List<Integer> followers = new ArrayList<Integer>( );
-	
+	private List<Integer> following = new ArrayList<Integer>();
 
+	@Transient
+	private List<Integer> followers = new ArrayList<Integer>();
 
 	public int getUser_id() {
 		return user_id;
 	}
 
-	
 	public List<Tweet> getTweet() {
 		return tweet;
 	}
@@ -87,10 +81,8 @@ public class Users {
 		this.tweet = tweet;
 	}
 
-
 	private List<Tweet> tweet;
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -133,7 +125,6 @@ public class Users {
 	public void setFollower_counts(int follower_counts) {
 		this.follower_counts = follower_counts;
 	}
-
 
 	@Override
 	public String toString() {

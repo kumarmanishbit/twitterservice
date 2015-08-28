@@ -8,25 +8,22 @@ import com.castlight.twitterservice.beans.Follower;
 
 public class FollowDao {
 
-	public void follow(int follower_id,int following_to){
-		
-		
+	public void follow(int follower_id, int following_to) {
+
 		Follower follower = new Follower();
 		follower.setFollower_id(follower_id);
 		follower.setUser_id(following_to);
 
+		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("twitterservice");
 
-	      EntityManagerFactory emfactory = Persistence.createEntityManagerFactory( "twitterservice" );
-	      
-	      EntityManager entitymanager = emfactory.createEntityManager( );
-	      entitymanager.getTransaction( ).begin( );
+		EntityManager entitymanager = emfactory.createEntityManager();
+		entitymanager.getTransaction().begin();
 
-	     
-	      entitymanager.persist( follower );
-	     
-	      entitymanager.getTransaction( ).commit( );
+		entitymanager.persist(follower);
 
-	      entitymanager.close( );
-	      emfactory.close( );
+		entitymanager.getTransaction().commit();
+
+		entitymanager.close();
+		emfactory.close();
 	}
 }

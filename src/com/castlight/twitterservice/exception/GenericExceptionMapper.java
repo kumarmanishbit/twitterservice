@@ -12,14 +12,13 @@ public class GenericExceptionMapper implements ExceptionMapper<Throwable> {
 
 	@Override
 	public Response toResponse(Throwable ex) {
-		
 
 		ErrorMessage errorMessage = new ErrorMessage();
 		errorMessage.setErrorCode(500);
 		errorMessage.setErrorMessage(ex.getMessage());
 		errorMessage.setDocumentation("http://www.google.com");
 		return Response.status(Status.INTERNAL_SERVER_ERROR).entity(errorMessage).build();
-		
+
 	}
 
 }
