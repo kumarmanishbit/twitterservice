@@ -16,7 +16,7 @@ Task 1 >> Create a User :-
 Follow following url :-
 
 {POST}
-http://localhost:8080/twitterservice/rest/tweet/createtweet
+http://localhost:8080/twitterservice/rest/user/createuser
 
 PayLoad Template:- 
 {
